@@ -1,5 +1,11 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
 body{
-	background: #eee;
+	font-size: 120%;
+	background: #F8F8FF;
 }
 #frm{
 	border: solid gray 1px;
@@ -14,4 +20,16 @@ body{
 	background: #337ab7;
 	padding: 5px;
 	margin-left: 69%;
+}
+
+#header {
+	width: 30%;
+	margin: 50 px auto 0px;
+	color: white;
+	background: #5F9EA0;
+	text-align: center;
+	border: 1px solid #B0C4DE;
+	border-bottom: none;
+	border-radius: 10px 10px 0px 0px;
+	padding: 20px;
 }
