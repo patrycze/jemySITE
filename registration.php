@@ -5,7 +5,7 @@ $surname = $_POST['surname'];
 $email = $_POST['email'];
 $tel = $_POST['tel'];
 
-$con=mysqli_connect("localhost","pazura","baran","testgastro");
+$con=mysqli_connect("localhost","pazura","","testgastro");
 // Check connection
 if (mysqli_connect_errno())
   {
