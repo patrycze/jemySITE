@@ -10,7 +10,7 @@
 	<h2>Register</h2> 
 	</div>
 	
-		<form action="process.php" method="POST">
+		<form action="registration.php" method="POST">
 
 		<div class="frm">	
 			<p>
