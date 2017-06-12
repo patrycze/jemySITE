@@ -18,16 +18,29 @@
 		<link rel="stylesheet" href="css/style.css" >
 
 		<script>
-		function mainInfo(id) {
-		$.ajax({
-        type: "GET",
-        url: "dummy.php",
-        data: "mainid =" + id,
-        success: function(result) {
-            $("#somewhere").html(result);
-        }
-    });
-};
+		function showUser(str) {
+		    if (str == "") {
+		        document.getElementById("txtHint").innerHTML = "";
+		        return;
+		    } else {
+		        if (window.XMLHttpRequest) {
+		            // code for IE7+, Firefox, Chrome, Opera, Safari
+		            xmlhttp = new XMLHttpRequest();
+		        } else {
+		            // code for IE6, IE5
+		            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		        }
+		        xmlhttp.onreadystatechange = function() {
+		            if (this.readyState == 4 && this.status == 200) {
+		                document.getElementById("txtHint").innerHTML = this.responseText;
+		            }
+		        };
+		        // if (str == 1) {
+		       		xmlhttp.open("GET","getfood2.php?q="+str,true);
+		        	xmlhttp.send();
+		        // }
+		    }
+		}
 		</script>
 	</head>
 
@@ -65,39 +78,25 @@
 					      	<div class="form-group">
 					        	<label class="col-sm-4 control-label" for="food_1">Mięso</label>
 				        		<div class="col-sm-8">
-									<select id="food_1_1" class="form-control" name="food_1_1" onchange="mainInfo(this.value)>
+									<select id="food_1_1" class="form-control" name="food_1_1" onchange="showUser(this.value)">
 										<option value="0">Wybierz rodzaj miesa</option>
 										<?php
 										require 'config.php';
 
-										$sql = "SELECT Nazwa FROM menukategoria";
+										$sql = "SELECT menukategoria_id, Nazwa FROM menukategoria";
 										$result = mysqli_query($conn, $sql);
 
 										if (mysqli_num_rows($result) > 0) {
 										    // output data of each row
 										    while($row = mysqli_fetch_assoc($result)) {
-										    	echo "<option value=\"" .$row['id'] . "\">" . $row['Nazwa'] . "</option>";
+										    	echo "<option value=\"" .$row['menukategoria_id'] . "\">" . $row['Nazwa'] . "</option>";
 										    }
 										} else {
 										    echo "<option value=\"zero\" disabled>nothing to select</option>";
 										}
 										mysqli_close($conn);
-										?>
-										
-									
+										?>									
 									</select>
-										<?php
-										if (isset($_POST["food_1_1"]))
-										{
-											$option = $_POST['food_1_1'];
-											echo "no username supplied"; 
-										} 
-										else 
-										{
-										$user = null;
-										echo "no username supplied";
-										}
-										?>
 					        	</div>
 				        		<div class="col-sm-offset-4 col-sm-8" style="margin-top: 20px">
 					          		<select id="txtHint" class="form-control" name="food_1_2">
@@ -114,10 +113,26 @@
 					        	<label class="col-sm-4 control-label" for="city">Warzywa</label>
 				        		<div class="col-sm-8">
 					          		<select id="city" class="form-control" name="miasto">
-							            <option value=""></option>
-							            <option></option>
-							            <option></option>
-							            <option></option>  
+							            <option value="">
+											<?php
+										require 'config.php';
+
+										$sql = "SELECT * FROM menupozycja WHERE menupozycja_id > 3";
+										$result = mysqli_query($conn, $sql);
+
+										if (mysqli_num_rows($result) > 0) {
+										    while($row = mysqli_fetch_assoc($result)) {
+										    	echo "<option value=\"" .$row['menupozycja_id'] . "\">" . $row['Nazwa'] . "</option>";
+										    }
+										} else {
+										    echo "<option value=\"zero\" disabled>nothing to select</option>";
+										}
+										mysqli_close($conn);
+										?>
+										
+										
+										
+										</option>  
 					          		</select>
 					        	</div>
 					      	</div>
