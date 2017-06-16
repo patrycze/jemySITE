@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" type="image/png" href="images/favicon.png">
+		<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+		<title>IO PPazura MZagorski</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="Patryk Pazura, Mateusz Zagórski">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="css/style.css" >
+
+
+		
+	</head>
+
+	<body cz-shortcut-listen="true">
+		<!-- HEADER NAVIGATION -->
+		<header>
+			<nav class="navbar navbar-default navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<img class="logo" src="images/logo.png">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="#slider_section">Start</a></li>
+							<li><a href="#about_us_section">O nas</a></li>
+							<li><a href="#">Zamów</a></li>
+							<li><a href="#">Kontakt</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<section id="reservation_section">
+			<div class="container resrvation_container">
+				<div class="row">
+					<div class="col-lg-8 col-md-8">
+						<form action="reservation.php" id="main_form" class="form-horizontal" method="POST" >
+
+							<div class="form-group">
+						        <label class="col-sm-4 control-label" for="Name">Imię</label>
+						        <div class="col-sm-8">
+						          <input id="Name" class="form-control" placeholder="Imie" name="name" type="text">
+						        </div>
+					      	</div>
+
+					      	<div class="form-group">
+					        	<label class="col-sm-4 control-label" for="Surname">Nazwisko</label>
+					        	<div class="col-sm-8">
+					          		<input id="Surname" class="form-control" placeholder="Nazwisko" name="Surname" type="text">
+					        	</div>
+					      	</div>
+
+					      	<div class="form-group">
+					        	<label class="col-sm-4 control-label" for="email">Email</label>
+					        	<div class="col-sm-8">
+					          		<input id="email" class="form-control" placeholder="Email" name="email" type="email">
+					        	</div>
+					      	</div>
+
+					      	<div class="form-group">
+					        	<label class="col-sm-4 control-label" for="reservation_date">Data rezerwacji</label>
+					        	<div class="col-sm-8">
+					          		<input id="reservation_date" class="form-control" placeholder="YYYY-MM-DD" name="reservation_date" type="date">
+					        	</div>
+					      	</div>
+
+					      	<div class="form-group">
+					        	<label class="col-sm-4 control-label" for="city">Miasto</label>
+				        		<div class="col-sm-8">
+					          		<select id="city" class="form-control" name="miasto">
+							            <option value=""></option>
+							            <option>Szczecin</option>
+							            <option>Wrocław</option>
+							            <option>Warszawa</option>  
+					          		</select>
+					        	</div>
+					      	</div>
+
+					      	<div class="form-group">
+					        	<label class="col-sm-4 control-label" for="reservation_hour">Godzina rezerwacji</label>
+				        		<div class="col-sm-8">
+					          		<select id="reservation_hour" class="form-control" name="godzina">
+							            <option value=""></option>
+							            <option>8</option>
+							            <option>9</option>
+							            <option>10</option> 
+							            <option>11</option>
+							            <option>12</option>
+							            <option>13</option>
+							            <option>14</option>
+							            <option>15</option>
+							            <option>16</option>
+							            <option>17</option>
+							            <option>18</option>
+							            <option>19</option>
+							            <option>20</option>
+							            <option>21</option> 
+					          		</select>
+					        	</div>
+					      	</div>
+
+					      	<div class="form-group">
+					        	<label class="col-sm-4 control-label" for="number-of-children">Liczba gości</label>
+					        	<div class="col-sm-8">
+					          		<input id="number_of_guests" class="form-control" placeholder="Ilość gości" name="number_of_guests" type="number">
+					        	</div>
+					      	</div>
+
+					      	<div class="form-group">
+					        	<label class="col-sm-4 control-label" for="phoneNumber">Nr telefonu</label>
+					        	<div class="col-sm-8">
+					          		<input id="phoneNumber" class="form-control" placeholder="XXX-YYY-ZZZ" name="phoneNumber" type="text">
+					        	</div>
+					      	</div>
+
+					      	<div class="form-group">
+					      		<div class="col-sm-6"></div>
+					        	<div class="col-sm-3">
+					          		<button id="submit_button" type="submit" class="btn btn-primary">Rezerwuj</button>
+					        	</div>
+					      	</div>
+					    </form> 
+						
+			
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CONTACT -->
+		<section id="contact_section">
+			<div class="container contact_container">
+				<div class="row">
+					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+						<h3 class="contact_header">Kontakt</h3>
+						<p class="contact_text">Fusce vestibulum vitae nunc a varius. In at eros et justo rutrum bibendum non id sem. Sed lobortis, arcu ac scelerisque faucibus, mauris ipsum semper dolor, in congue ex nulla eu felis. Nunc at consequat massa. Quisque sit amet est quam. Aenean diam libero, imperdiet eget commodo vel, congue sed turpis. Pellentesque commodo rutrum tincidunt.</p>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- JQUERY GOOGLE CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- button click -->
+		
+		<?php
+		require 'config.php';
+		lista = $_GET['first'];
+		echo 
+		mysqli_close($conn);
+		?>
+		
+		<script>
+		$("#submit_button").click(function() {
+			window.open("reservation.php","_self");
+		}) 
+		</script>
+	
+	</body>
+</html>

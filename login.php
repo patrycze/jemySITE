@@ -19,9 +19,14 @@ $query = "select * from testgastro.klient where Imie = '$name' and Nazwisko = '$
 $result = mysqli_query($con,$query);
 
 $row = mysqli_fetch_assoc($result);
+
 if($row['Imie'] == $name && $row['Nazwisko'] == $surname && $row['Password'] == $pass) {
 //echo "Login success!!! Welcome ".$row['Imie'];
-echo file_get_contents("index.html");
+if($row['klient_id'] == 1){
+	echo file_get_contents("admin/index_admin.html");
+}else {
+	echo file_get_contents("index.html");
+}
 };
 
 ?>

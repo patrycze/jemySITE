@@ -42,6 +42,7 @@
 		    }
 		}
 		</script>
+		
 	</head>
 
 	<body>
@@ -99,7 +100,7 @@
 									</select>
 					        	</div>
 				        		<div class="col-sm-offset-4 col-sm-8" style="margin-top: 20px">
-					          		<select id="txtHint" class="form-control" name="food_1_2">
+					          		<select id="txtHint" class="form-control" name="food_1_2" onchange="show()">
 					          		</select>
 					        	</div>
 				        		<!-- <div class="col-sm-offset-4 col-sm-8">
@@ -110,9 +111,9 @@
 					      	</div>
 					      	
 					      	<div class="form-group">
-					        	<label class="col-sm-4 control-label" for="city">Warzywa</label>
+					        	<label class="col-sm-4 control-label" for="vegetable">Warzywa</label>
 				        		<div class="col-sm-8">
-					          		<select id="city" class="form-control" name="miasto">
+					          		<select id="vegetable" class="form-control" name="miasto" onchange="show()">
 							            <option value="">
 											<?php
 										require 'config.php';
@@ -150,11 +151,58 @@
 					      	<div class="form-group">
 					      		<div class="col-sm-6"></div>
 					        	<div class="col-sm-3">
-					          		<button id="submit_button" type="submit" class="btn btn-primary">Rezerwuj</button>
+					          		<button href="reservationSITE.html" id="submit_button" type="submit" class="btn btn-primary">Zamów</button>
 					        	</div>
 								<div class="col-sm-3">
-								    <button id="proceed_1step" type="button" class="btn btn-primary">Przejdź dalej</button>
+								
+								    <button href="reservationSITE.html" id="proceed_1step" type="button" class="btn btn-primary">Rezerwuj miejsce</button>
 								</div>
+								
+								<script>
+								function show() {
+								var e = document.getElementById("food_1_1");
+								var strUser = e.options[e.selectedIndex].text;
+								console.log(strUser);
+								var c = document.getElementById("txtHint");
+								var strUser2 = c.options[c.selectedIndex].text;
+								console.log(strUser2);
+								var a = document.getElementById("vegetable");
+								var strUser3 = a.options[a.selectedIndex].text;
+								console.log(strUser3)
+								}
+								</script>
+<script>
+  function myJavascriptFunction(strUser) { 
+  window.location.href = "skrypt.php?first=" + strUser; 
+	}
+</script>
+		<script>		
+		$("#submit_button").click(function() {
+			window.open("order.php","_self");
+		}) 
+		</script>
+		<script>
+		
+		document.getElementById("proceed_1step").addEventListener("click", function(){
+			
+			
+		var e = document.getElementById("food_1_1");
+		var strUser = e.options[e.selectedIndex].text;
+		console.log(strUser);
+		var c = document.getElementById("txtHint");
+		var strUser2 = c.options[c.selectedIndex].text;
+		console.log(strUser2);
+		var a = document.getElementById("vegetable");
+		var strUser3 = a.options[a.selectedIndex].text;
+		console.log(strUser3)
+		var list = [strUser, strUser2, strUser3]
+		myJavascriptFunction(list);	
+			
+			
+			
+	   // 	window.open("reservationSITE2.html","_self")
+		}); 
+		</script>
 					      	</div>
 					    </form>
 

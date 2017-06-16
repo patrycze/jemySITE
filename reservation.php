@@ -43,4 +43,5 @@ $query = "INSERT INTO testgastro.rezerwacja(restauracja_id, stolik_id, klient_id
 
 echo $query;
 mysqli_query($con,$query);
+echo file_get_contents("index.html");
 ?>
