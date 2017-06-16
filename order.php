@@ -117,7 +117,7 @@
 											<?php
 										require 'config.php';
 
-										$sql = "SELECT * FROM menupozycja WHERE menupozycja_id > 3";
+										$sql = "select * FROM menupozycja JOIN menukategoriapozycja ON (menupozycja.menupozycja_id = menukategoriapozycja.menupozycja_id) where menukategoriapozycja.menukategoria_id = 5";
 										$result = mysqli_query($conn, $sql);
 
 										if (mysqli_num_rows($result) > 0) {
@@ -129,8 +129,6 @@
 										}
 										mysqli_close($conn);
 										?>
-										
-										
 										
 										</option>  
 					          		</select>

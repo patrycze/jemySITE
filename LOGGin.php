@@ -10,7 +10,7 @@
 	<h2>Register</h2> 
 	</div>
 	
-		<form action="registration.php" method="POST">
+		<form action="logowanie.php" method="POST">
 
 		<div class="frm">	
 			<p>
@@ -24,14 +24,6 @@
 			<p>
 				<label>Hasło:</label> 
 				<input type="text" id="pass" name="pass" />
-			</p>
-			<p>
-				<label>Email:</label> 
-				<input type="text" id="email" name="email" />
-			</p>
-			<p>
-				<label>Telefon:</label> 
-				<input type="text" id="tel" name="tel" />
 			</p>
 			<p>
 				<label></label> 
