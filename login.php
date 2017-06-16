@@ -1,46 +1,27 @@
-<html>
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="css/loginstyle.css">
-</head>
+<?php
 
-<body>
-	
-	<div class="header">
-	<h2>Register</h2> 
-	</div>
-	
-		<form action="registration.php" method="POST">
+$name = $_POST['name'];
+$surname = $_POST['surname'];
+$pass = $_POST['pass'];
 
-		<div class="frm">	
-			<p>
-				<label>Imie:</label> 
-				<input type="text" id="name" name="name" />
-			</p>
-			<p>
-				<label>Nazwisko:</label> 
-				<input type="text" id="surname" name="surname" />
-			</p>
-			<p>
-				<label>Hasło:</label> 
-				<input type="text" id="pass" name="pass" />
-			</p>
-			<p>
-				<label>Email:</label> 
-				<input type="text" id="email" name="email" />
-			</p>
-			<p>
-				<label>Telefon:</label> 
-				<input type="text" id="tel" name="tel" />
-			</p>
-			<p>
-				<label></label> 
-			</p>
-			<p>
-				<button type="submit" id="btn">Register</button>
-			</p>
-		</div>
-		</form>
+$name = stripcslashes($name);
+$surname = stripcslashes($surname);
+$pass = stripcslashes($pass);
 
-</body>
-</html>
+$con=mysqli_connect("localhost","pazura","baran","testgastro");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+$query = "select * from testgastro.klient where Imie = '$name' and Nazwisko = '$surname' and Password = '$pass'";
+$result = mysqli_query($con,$query);
+
+$row = mysqli_fetch_assoc($result);
+if($row['Imie'] == $name && $row['Nazwisko'] == $surname && $row['Password'] == $pass) {
+//echo "Login success!!! Welcome ".$row['Imie'];
+echo file_get_contents("index.html");
+};
+
+?>

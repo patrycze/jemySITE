@@ -9,7 +9,7 @@ $godzina = $_POST['godzina'];
 $number_of_guests = $_POST['number_of_guests']; 
 $tel = $_POST['phoneNumber'];
 
-
+$godzina = $godzina.':00:00';
 $con=mysqli_connect("localhost","pazura","baran","testgastro");
 // Check connection
 if (mysqli_connect_errno())
@@ -39,7 +39,7 @@ if (mysqli_connect_errno())
 	}
 		
 
-$query = "INSERT INTO testgastro.klient (restauracja_id, stolik_id, klient_id, DataRezerwacji, GodzinaRezerwacji) VALUES ('{$miasto_id}','{$stolik_id}','{$stolik_id}','{$date}','{$godzina}')";
+$query = "INSERT INTO testgastro.rezerwacja(restauracja_id, stolik_id, klient_id, DataRezerwacji, GodzinaRezerwacji) VALUES ('1','1','16','{$date}','{$godzina}')";
 
 echo $query;
 mysqli_query($con,$query);
