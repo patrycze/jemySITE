@@ -17,6 +17,11 @@
 
 		<link rel="stylesheet" href="css/style.css" >
 
+		<!-- JQUERY GOOGLE CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 		<script>
 		function showUser(str) {
 		    if (str == "") {
@@ -60,10 +65,8 @@
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#slider_section">Start</a></li>
-							<li><a href="#about_us_section">O nas</a></li>
-							<li><a href="#">Zamów</a></li>
-							<li><a href="#">Kontakt</a></li>
+							<li><a href="index.html">Strona główna</a></li>
+							<li><a href="#contact_section">Kontakt</a></li>
 						</ul>
 					</div>
 				</div>
@@ -225,12 +228,7 @@
 				</div>
 			</div>
 		</section>
-
-	<!-- JQUERY GOOGLE CDN -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+		
 	<!-- button click -->
 	<script>
 	document.getElementById("proceed").addEventListener("click", function(){
