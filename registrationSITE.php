@@ -80,13 +80,6 @@
 				<div class="col-lg-3 col-md-3 col-sm-3"></div>
 			</div>
 		</div>
-		
-		<!-- button click -->
-		<script>
-		document.getElementById("proceed").addEventListener("click", function(){
-	    	window.open("1step.html","_self")
-		}); 
-		</script>
-		
+
 	</body>
 </html>
