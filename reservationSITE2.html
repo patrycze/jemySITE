@@ -49,7 +49,7 @@
 			<div class="container resrvation_container">
 				<div class="row">
 					<div class="col-lg-8 col-md-8">
-						<form id="main_form" class="form-horizontal" method="POST" >
+						<form action="reservation.php" id="main_form" class="form-horizontal" method="POST" >
 
 							<div class="form-group">
 						        <label class="col-sm-4 control-label" for="Name">Imię</label>
@@ -68,7 +68,7 @@
 					      	<div class="form-group">
 					        	<label class="col-sm-4 control-label" for="email">Email</label>
 					        	<div class="col-sm-8">
-					          		<input id="email" class="form-control" placeholder="Email" name="email" type="email" onchange="showUser()">
+					          		<input id="email" class="form-control" placeholder="Email" name="email" type="email">
 					        	</div>
 					      	</div>
 
@@ -82,7 +82,7 @@
 					      	<div class="form-group">
 					        	<label class="col-sm-4 control-label" for="city">Miasto</label>
 				        		<div class="col-sm-8">
-					          		<select id="city" class="form-control" name="miasto" onchange="showUser()">
+					          		<select id="city" class="form-control" name="miasto">
 							            <option value=""></option>
 							            <option>Szczecin</option>
 							            <option>Wrocław</option>
@@ -156,7 +156,7 @@
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 
 					</div>
-				</div>
+				</div>	
 			</div>
 		</section>
 
@@ -174,22 +174,47 @@
    
    if (!account.length) return false;
    //gets the first element 'a' matched
-   
    account = account[0].replace("a=", "");
    account = atob(account);
    window.alert(account); 
    account = JSON.parse(account);
    //window.alert(account); 
-   account = [account.Type, account.Food, account.Vegetable]
-   window.alert(account);  
+   account = [account.Type, account.Food, account.Vegetable];
+   myJavascriptFunction(account);
+   
+   // teraz rezerwacja 
+   /*
+    var X1 = $( "#Name" ).val();
+	var X2 = $( "#Surname" ).val();
+	var X3 = $( "#email" ).val();
+	var X4 = $( "#reservation_date").val();
+	var X5 = $( "#city" ).val();
+	var X6 = $( "#reservation_hour" ).val();
+	var X7 = $( "#number_of_guests" ).val();
+	var X8 = $( "#phoneNumber" ).val();
+	reservation = {Name:X1, Surname:X2, email:X3, reservation_date:X4,city:X5,reservation_hour:X6,number_of_guests:X7,phoneNumber:X8}
+//	window.alert(reservation.Surname);
+     
+	data = [data.Name, data.Surname, data.email, data.reservation_date, data.city, data.reservation_hour, data.number_of_guests, data.phoneNumber];
+	myJavascriptFunction2(data);
+   */
+   
+   
    return true;
 });
    
 
 	</script>
 	
-		<script>
-		function showUser() {
+<script>
+  function myJavascriptFunction(strUser) { 
+  location.href = "skrypt.php?first=" + strUser; 
+}
+</script>
+	
+
+	<script>
+	//	function showUser() {
 		       /* if (window.XMLHttpRequest) {
 		            // code for IE7+, Firefox, Chrome, Opera, Safari
 		            xmlhttp = new XMLHttpRequest();
@@ -204,7 +229,7 @@
 					var name1 = name.options.text;
 					console.log(name1);
 					*/
-					
+	/*				
 					var X1 = $( "#Name" ).val();
 					var X2 = $( "#Surname" ).val();
 					var X3 = $( "#email" ).val();
@@ -216,7 +241,7 @@
 					var X9 = $( "#phoneNumber" ).val();
 					reservation = {X1, X2, X3, X4,X5,X6,X7,X8,X9}
 					window.alert(reservation);
-					/*
+		*/			/*
 					var Surname = document.getElementById("Surname");
 					var Surname1 = Surname.options[Surname.selectedIndex].text;
 					console.log(Surname1);
@@ -239,7 +264,7 @@
 					
 					//var list = [strUser, strUser2, strUser3]
 		            //} */
-		        };
+		     //   };
 		        // if (str == 1) {
 		       	//	xmlhttp.open("GET",".php?="+str,true);
 		        //	xmlhttp.send();

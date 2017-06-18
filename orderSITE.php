@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="css/style.css" >
 
 		<script>
-		function showUser(str) {
+		 function showUser(str) {
 		    if (str == "") {
 		        document.getElementById("txtHint").innerHTML = "";
 		        return;
