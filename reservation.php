@@ -39,9 +39,10 @@ if (mysqli_connect_errno())
 	}
 		
 
-$query = "INSERT INTO testgastro.rezerwacja(restauracja_id, stolik_id, klient_id, DataRezerwacji, GodzinaRezerwacji) VALUES ('1','1','16','{$date}','{$godzina}')";
-
-echo $query;
+$query = "INSERT INTO testgastro.rezerwacja(restauracja_id, stolik_id, klient_id, DataRezerwacji, GodzinaRezerwacji, Status) VALUES ('1','1','16','{$date}','{$godzina}', '1')";
+//echo $query;
+mysqli_query($con,$query);
+$query = "UPDATE testgastro.stolik SET Stan= '1' where stolik_id = 1";
 mysqli_query($con,$query);
 echo file_get_contents("index.html");
 ?>

@@ -74,7 +74,7 @@
 			<div class="container order_container">
 				<div class="row">
 					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-						<form id="main_form" class="form-horizontal" method="post" >
+						<form action="order.php" id="main_form" class="form-horizontal" method="post" >
 
 					      	<div class="form-group">
 					        	<label class="col-sm-4 control-label" for="food_1">Mięso</label>
@@ -118,12 +118,12 @@
 											<?php
 										require 'config.php';
 
-										$sql = "select * FROM menupozycja JOIN menukategoriapozycja ON (menupozycja.menupozycja_id = menukategoriapozycja.menupozycja_id) where menukategoriapozycja.menukategoria_id = 5";
+										$sql = "select Nazwa FROM menupozycja JOIN menukategoriapozycja ON (menupozycja.menupozycja_id = menukategoriapozycja.menupozycja_id) where menukategoriapozycja.menukategoria_id = 5";
 										$result = mysqli_query($conn, $sql);
 
 										if (mysqli_num_rows($result) > 0) {
 										    while($row = mysqli_fetch_assoc($result)) {
-										    	echo "<option value=\"" .$row['menupozycja_id'] . "\">" . $row['Nazwa'] . "</option>";
+										    	echo "<option value=\"" .$row['Nazwa'] . "\">" . $row['Nazwa'] . "</option>";
 										    }
 										} else {
 										    echo "<option value=\"zero\" disabled>nothing to select</option>";
@@ -136,17 +136,38 @@
 					        	</div>
 					      	</div>
 					      	
-					      	<div class="form-group">
-					        	<label class="col-sm-4 control-label" for="city">Dodatki</label>
+							<div class="form-group">
+					        	<label class="col-sm-4 control-label" for="reservation_date">Data rezerwacji</label>
+					        	<div class="col-sm-8">
+					          		<input id="reservation_date" class="form-control" placeholder="YYYY-MM-DD" name="reservation_date" type="date">
+					        	</div>
+					      	</div>
+							
+							
+					          	<div class="form-group">
+					        	<label class="col-sm-4 control-label" for="reservation_hour">Godzina rezerwacji</label>
 				        		<div class="col-sm-8">
-					          		<select id="city" class="form-control" name="miasto">
+					          		<select id="reservation_hour" class="form-control" name="godzina">
 							            <option value=""></option>
-							            <option></option>
-							            <option></option>
-							            <option></option>  
+							            <option>8</option>
+							            <option>9</option>
+							            <option>10</option> 
+							            <option>11</option>
+							            <option>12</option>
+							            <option>13</option>
+							            <option>14</option>
+							            <option>15</option>
+							            <option>16</option>
+							            <option>17</option>
+							            <option>18</option>
+							            <option>19</option>
+							            <option>20</option>
+							            <option>21</option> 
 					          		</select>
 					        	</div>
 					      	</div>
+							
+							
 
 					      	<div class="form-group">
 					      		<div class="col-sm-6"></div>
@@ -182,13 +203,13 @@
 	
 		var e = document.getElementById("food_1_1");
 		var strUser = e.options[e.selectedIndex].text;
-		//console.log(strUser);
+		console.log(strUser);
 		var c = document.getElementById("txtHint");
 		var strUser2 = c.options[c.selectedIndex].text;
-		//console.log(strUser2);
+		console.log(strUser2);
 		var a = document.getElementById("vegetable");
 		var strUser3 = a.options[a.selectedIndex].text;
-		//console.log("TYRYRYY");
+		console.log("TYRYRYY");
 		 var account = {
 			Type: strUser,
 			Food: strUser2,
@@ -196,7 +217,7 @@
 		};
 		
 		account = JSON.stringify(account);
-		account = btoa(account);
+		account = btoa(unescape(encodeURIComponent(account)));
 		location.assign("reservationSITE2.html?a=" + account);
    
 		});

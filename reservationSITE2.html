@@ -180,10 +180,11 @@
    account = JSON.parse(account);
    //window.alert(account); 
    account = [account.Type, account.Food, account.Vegetable];
-   //myJavascriptFunction(account);
+   myJavascriptFunction(account);
+   window.alert(account);  
    
    // teraz rezerwacja 
-   /*
+   
     var X1 = $( "#Name" ).val();
 	var X2 = $( "#Surname" ).val();
 	var X3 = $( "#email" ).val();
@@ -197,7 +198,7 @@
      
 	data = [data.Name, data.Surname, data.email, data.reservation_date, data.city, data.reservation_hour, data.number_of_guests, data.phoneNumber];
 	myJavascriptFunction2(data);
-   */
+   
    
    
    return true;
@@ -209,6 +210,10 @@
 <script>
   function myJavascriptFunction(strUser) { 
   location.href = "skrypt.php?first=" + strUser; 
+}
+
+	function myJavascriptFunction2(strUser) { 
+  location.href = "reservation2.php?first=" + strUser; 
 }
 </script>
 	
