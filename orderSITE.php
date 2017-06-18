@@ -17,11 +17,6 @@
 
 		<link rel="stylesheet" href="css/style.css" >
 
-		<!-- JQUERY GOOGLE CDN -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 		<script>
 		function showUser(str) {
 		    if (str == "") {
@@ -65,8 +60,10 @@
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="index.html">Strona główna</a></li>
-							<li><a href="#contact_section">Kontakt</a></li>
+							<li><a href="#slider_section">Start</a></li>
+							<li><a href="#about_us_section">O nas</a></li>
+							<li><a href="#">Zamów</a></li>
+							<li><a href="#">Kontakt</a></li>
 						</ul>
 					</div>
 				</div>
@@ -158,7 +155,7 @@
 					        	</div>
 								<div class="col-sm-3">
 								
-								    <button href="reservationSITE.html" id="proceed_1step" type="button" class="btn btn-primary">Rezerwuj miejsce</button>
+								    <button id="proceed_1step" type="button" class="btn btn-primary">Rezerwuj miejsce</button>
 								</div>
 								
 								<script>
@@ -175,36 +172,35 @@
 								}
 								</script>
 <script>
-  function myJavascriptFunction(strUser) { 
-  window.location.href = "skrypt.php?first=" + strUser; 
-	}
+  //function myJavascriptFunction(strUser) { 
+  //window.location.href = "skrypt.php?first=" + strUser; 
+//	}
 </script>
-		<script>		
-		$("#submit_button").click(function() {
-			window.open("order.php","_self");
-		}) 
-		</script>
-		<script>
 		
-		document.getElementById("proceed_1step").addEventListener("click", function(){
-			
-			
+		<script>
+		document.getElementById("proceed_1step").addEventListener("click", function(){	
+	
 		var e = document.getElementById("food_1_1");
 		var strUser = e.options[e.selectedIndex].text;
-		console.log(strUser);
+		//console.log(strUser);
 		var c = document.getElementById("txtHint");
 		var strUser2 = c.options[c.selectedIndex].text;
-		console.log(strUser2);
+		//console.log(strUser2);
 		var a = document.getElementById("vegetable");
 		var strUser3 = a.options[a.selectedIndex].text;
-		console.log(strUser3)
-		var list = [strUser, strUser2, strUser3]
-		myJavascriptFunction(list);	
-			
-			
-			
-	   // 	window.open("reservationSITE2.html","_self")
-		}); 
+		//console.log("TYRYRYY");
+		 var account = {
+			Type: strUser,
+			Food: strUser2,
+			Vegetable: strUser3
+		};
+		
+		account = JSON.stringify(account);
+		account = btoa(account);
+		location.assign("reservationSITE2.html?a=" + account);
+   
+		});
+		
 		</script>
 					      	</div>
 					    </form>
@@ -228,13 +224,14 @@
 				</div>
 			</div>
 		</section>
-		
+
+	<!-- JQUERY GOOGLE CDN -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<!-- button click -->
-	<script>
-	document.getElementById("proceed").addEventListener("click", function(){
-    	window.open("1step.php","_self")
-	}); 
-	</script>
+
 
 
 	</body>

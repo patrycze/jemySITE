@@ -21,9 +21,6 @@
 
 		
 	</head>
-
-	<body cz-shortcut-listen="true">
-		<!-- HEADER NAVIGATION -->
 		<header>
 			<nav class="navbar navbar-default navbar-fixed-top">
 				<div class="container">
@@ -38,8 +35,10 @@
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="index.html">Strona główna</a></li>
-							<li><a href="#contact_section">Kontakt</a></li>
+							<li><a href="#slider_section">Start</a></li>
+							<li><a href="#about_us_section">O nas</a></li>
+							<li><a href="#">Zamów</a></li>
+							<li><a href="#">Kontakt</a></li>
 						</ul>
 					</div>
 				</div>
@@ -50,7 +49,7 @@
 			<div class="container resrvation_container">
 				<div class="row">
 					<div class="col-lg-8 col-md-8">
-						<form action="reservation.php" id="main_form" class="form-horizontal" method="POST" >
+						<form id="main_form" class="form-horizontal" method="POST" >
 
 							<div class="form-group">
 						        <label class="col-sm-4 control-label" for="Name">Imię</label>
@@ -69,7 +68,7 @@
 					      	<div class="form-group">
 					        	<label class="col-sm-4 control-label" for="email">Email</label>
 					        	<div class="col-sm-8">
-					          		<input id="email" class="form-control" placeholder="Email" name="email" type="email">
+					          		<input id="email" class="form-control" placeholder="Email" name="email" type="email" onchange="showUser()">
 					        	</div>
 					      	</div>
 
@@ -132,7 +131,7 @@
 					      	<div class="form-group">
 					      		<div class="col-sm-6"></div>
 					        	<div class="col-sm-3">
-					          		<button id="submit_button" type="submit" class="btn btn-primary">Rezerwuj</button>
+					          	<button id="submit_button" type="submit" class="btn btn-primary">Rezerwuj</button>
 					        	</div>
 					      	</div>
 					    </form> 
@@ -161,24 +160,88 @@
 			</div>
 		</section>
 
+		
+	<script>	
+	document.getElementById("submit_button").addEventListener("click", function(){
+   var account = location.search;
+   if (!account) return false;
+   account = account.substr(1);
+   //gets the 'a' parameter from querystring
+   var a = (/^a=/);
+   account = account.split("&").filter(function(item) {
+	return a.test(item);
+   });
+   
+   if (!account.length) return false;
+   //gets the first element 'a' matched
+   
+   account = account[0].replace("a=", "");
+   account = atob(account);
+   window.alert(account); 
+   account = JSON.parse(account);
+   //window.alert(account); 
+   account = [account.Type, account.Food, account.Vegetable]
+   window.alert(account);  
+   return true;
+});
+   
+
+	</script>
+	
+		<script>
+		function showUser() {
+		        if (window.XMLHttpRequest) {
+		            // code for IE7+, Firefox, Chrome, Opera, Safari
+		            xmlhttp = new XMLHttpRequest();
+		        } else {
+		            // code for IE6, IE5
+		            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		        }
+		        xmlhttp.onreadystatechange = function() {
+		            if (this.readyState == 4 && this.status == 200) {
+					
+					var name = document.getElementById("name");
+					var name1 = name.options[name.selectedIndex].text;
+					console.log(name1);
+					
+					var Surname = document.getElementById("Surname");
+					var Surname1 = Surname.options[Surname.selectedIndex].text;
+					console.log(Surname1);
+					
+					var email = document.getElementById("email");
+					var email1 = email.options[email.selectedIndex].text;
+					console.log(email1);
+					
+					var reservation_date = document.getElementById("reservation_date");
+					var reservation_date1 = reservation_date.options[reservation_date.selectedIndex].text;
+					console.log(reservation_date1);
+					
+					var miasto = document.getElementById("miasto");
+					var miasto1 = miasto.options[miasto.selectedIndex].text;
+					console.log(miasto1);
+					
+					var godzina = document.getElementById("godzina");
+					var godzina1 = godzina.options[godzina.selectedIndex].text;
+					console.log(godzina1);
+					
+					//var list = [strUser, strUser2, strUser3]
+		            }
+		        };
+		        // if (str == 1) {
+		       	//	xmlhttp.open("GET",".php?="+str,true);
+		        //	xmlhttp.send();
+		        // }
+		    } */
+		</script>
+		
 		<!-- JQUERY GOOGLE CDN -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- button click -->
 		
-		<?php
-		require 'config.php';
-		lista = $_GET['first'];
-		echo 
-		mysqli_close($conn);
-		?>
-		
-		<script>
-		$("#submit_button").click(function() {
-			window.open("reservation.php","_self");
-		}) 
-		</script>
+	
 	
 	</body>
 </html>
+	

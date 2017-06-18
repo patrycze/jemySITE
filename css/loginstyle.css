@@ -1,17 +1,25 @@
-body {
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	font-size: 120%;
 	background: #F8F8FF;
 }
-.registration_form_container, .login_form_container {
-	margin: 10px 0;
+
+.frm{
+	margin: 10px 0px 10px 0px;
 	
 }
-.registration_form_container label, .login_form_container label {
+
+.frm label {
 	display: block;
 	text-align: left;
 	margin: 3px;
-	padding: 0;
 }
-.registration_form_container input, .login_form_container input {
+
+.frm input {
 	height: 30px;
 	width: 93%;
 	padding: 5px 10px;
@@ -19,34 +27,36 @@ body {
 	border-radius: 5px;
 	border: 1px solid gray;
 }
-.registration_container button, .login_container button {
+#btn{
+	
 	padding: 10px;
 	font-size: 15px;
 	color: white;
 	background: #5F9EA0;
 	border: none;
 	border-radius: 5px;
-	text-align: right;
+	
+	
+	
 }
-.registration_header, .login_header {
-	margin: 150px 0 0;
+
+.header {
+	width: 30%;
+	margin: 50px auto 0px;
 	color: white;
 	background: #5F9EA0;
 	text-align: center;
 	border: 1px solid #B0C4DE;
 	border-bottom: none;
-	border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0px 0px;
 	padding: 20px;
-	text-transform: uppercase;
 }
-.registration_form, .login_form {
+
+form {
+	width: 30%;
+	margin: 0px auto;
 	padding: 20px;
 	border: 1px solid #B0C4DE;
 	background: white;
-	border-radius: 0 0 10px 10px;
-}
-.registration_form .form-group:last-of-type, .login_form .form-group:last-of-type {
-	margin: 0 30px 0 0;
-	text-align: right;
-
+	border-radius: 0px 0px 10px 10px;
 }
