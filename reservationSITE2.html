@@ -82,7 +82,7 @@
 					      	<div class="form-group">
 					        	<label class="col-sm-4 control-label" for="city">Miasto</label>
 				        		<div class="col-sm-8">
-					          		<select id="city" class="form-control" name="miasto">
+					          		<select id="city" class="form-control" name="miasto" onchange="showUser()">
 							            <option value=""></option>
 							            <option>Szczecin</option>
 							            <option>Wrocław</option>
@@ -190,20 +190,33 @@
 	
 		<script>
 		function showUser() {
-		        if (window.XMLHttpRequest) {
+		       /* if (window.XMLHttpRequest) {
 		            // code for IE7+, Firefox, Chrome, Opera, Safari
 		            xmlhttp = new XMLHttpRequest();
 		        } else {
 		            // code for IE6, IE5
 		            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-		        }
-		        xmlhttp.onreadystatechange = function() {
-		            if (this.readyState == 4 && this.status == 200) {
-					
+		        } */
+		       // xmlhttp.onreadystatechange = function() {
+		        //    if (this.readyState == 4 && this.status == 200) {
+					/*
 					var name = document.getElementById("name");
-					var name1 = name.options[name.selectedIndex].text;
+					var name1 = name.options.text;
 					console.log(name1);
+					*/
 					
+					var X1 = $( "#Name" ).val();
+					var X2 = $( "#Surname" ).val();
+					var X3 = $( "#email" ).val();
+					var X4 = $( "#reservation_date").val();
+					var X5 = $( "#Name" ).val();
+					var X6 = $( "#city" ).val();
+					var X7 = $( "#reservation_hour" ).val();
+					var X8 = $( "#number_of_guests" ).val();
+					var X9 = $( "#phoneNumber" ).val();
+					reservation = {X1, X2, X3, X4,X5,X6,X7,X8,X9}
+					window.alert(reservation);
+					/*
 					var Surname = document.getElementById("Surname");
 					var Surname1 = Surname.options[Surname.selectedIndex].text;
 					console.log(Surname1);
@@ -225,13 +238,12 @@
 					console.log(godzina1);
 					
 					//var list = [strUser, strUser2, strUser3]
-		            }
+		            //} */
 		        };
 		        // if (str == 1) {
 		       	//	xmlhttp.open("GET",".php?="+str,true);
 		        //	xmlhttp.send();
 		        // }
-		    } */
 		</script>
 		
 		<!-- JQUERY GOOGLE CDN -->
